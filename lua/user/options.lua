@@ -40,6 +40,7 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
+-- Restore cursor style on exit
 vim.api.nvim_exec(
 [[
 augroup RestoreCursorShapeOnExit

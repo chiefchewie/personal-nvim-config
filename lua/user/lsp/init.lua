@@ -11,23 +11,19 @@ end
 
 local lsp_handlers = require "user.lsp.handlers"
 
--- This is the same as Chris's lsp-installer file
+-- This is the same as Chris's configs.lua file
 local servers = { "rust_analyzer", "sumneko_lua" }
-lsp_installer.setup(
-  {
-    ensure_installed = servers, -- ensure these servers are always installed
-    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-    ui =
-    {
-      icons =
-      {
-        server_installed = "✓",
-        server_pending = "➜",
-        server_uninstalled = "✗"
-      }
+lsp_installer.setup {
+  ensure_installed = servers, -- ensure these servers are always installed
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
     }
   }
-)
+}
+
 
 for _, lsp in ipairs(servers) do
   local default_options = {
@@ -35,10 +31,10 @@ for _, lsp in ipairs(servers) do
       capabilities = lsp_handlers.capabilities,
   }
 
-  if lsp == "sumneko_lua" then
-    local sumneko_options = require("user.lsp.settings.sumneko_lua")
-    default_options = vim.tbl_deep_extend("force", sumneko_options, default_options)
-  end
+  local has_custom_options, custom_options = pcall(require, "user.lsp.settings."..lsp)
+  if has_custom_options then
+	 	default_options = vim.tbl_deep_extend("force", custom_options, default_options)
+	end
 
   lspconfig[lsp].setup(default_options)
 end

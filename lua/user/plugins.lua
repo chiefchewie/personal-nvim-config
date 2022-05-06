@@ -49,7 +49,7 @@ return packer.startup(function(use)
   use "folke/tokyonight.nvim"
   use "Shatur/neovim-ayu"
 
- -- cmp plugins
+  -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions

@@ -12,7 +12,7 @@ end
 local lsp_handlers = require "user.lsp.handlers"
 
 -- This is the same as Chris's configs.lua file
-local servers = { "rust_analyzer", "sumneko_lua", "clangd", "html", "cssls", "tsserver", "jsonls", "pyright", "jdtls" }
+local servers = { "sumneko_lua" }
 lsp_installer.setup {
   ensure_installed = servers, -- ensure these servers are always installed
   ui = {

@@ -9,7 +9,8 @@ configs.setup {
     "cpp",
     "python",
     "java",
-    "lua"
+    "lua",
+    "javascript",
   }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing

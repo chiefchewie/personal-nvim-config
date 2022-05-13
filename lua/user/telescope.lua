@@ -1,6 +1,6 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-  print("loading telescope failed")
+  print("loading telescope.nvim failed")
   return
 end
 
@@ -28,7 +28,7 @@ telescope.setup {
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
 
-        ["<C-c>"] = actions.close,
+        ["<esc>"] = actions.close,
 
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,

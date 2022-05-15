@@ -15,7 +15,7 @@ M.setup = function()
 
   local config = {
     -- virtual text (inline hints)
-    virtual_text = true,
+    virtual_text = false,
     -- show signs
     signs = {
       active = signs,

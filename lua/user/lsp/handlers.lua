@@ -46,17 +46,21 @@ end
 
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
+  -- Note: the color scheme must have colors defined for:
+  -- LspReferenceRead, LspReferenceText, LspReferenceWrite
+
   if client.resolved_capabilities.document_highlight then
-    vim.api.nvim_exec(
-      [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]] ,
-      false
-    )
+    vim.api.nvim_create_augroup("lsp_highlight_document", { clear = false })
+    vim.api.nvim_create_autocmd({ "CursorHold" }, {
+      group = "lsp_highlight_document",
+      buffer = 0,
+      callback = vim.lsp.buf.document_highlight
+    })
+    vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+      group = "lsp_highlight_document",
+      buffer = 0,
+      callback = vim.lsp.buf.clear_references
+    })
   end
 end
 

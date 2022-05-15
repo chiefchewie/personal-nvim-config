@@ -41,11 +41,5 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
 -- Restore cursor style on exit
-vim.api.nvim_exec(
-  [[
-augroup RestoreCursorShapeOnExit
-    autocmd!
-    autocmd VimLeave * set guicursor=a:ver90-blinkwait700-blinkoff530-blinkon530
-augroup END
-]] ,
-  true)
+local restore_cursor = "set guicursor=a:ver90-blinkwait700-blinkoff530-blinkon530"
+vim.api.nvim_create_autocmd({ "VimLeave" }, { pattern = "*", command = restore_cursor })

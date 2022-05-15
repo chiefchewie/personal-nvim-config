@@ -21,4 +21,8 @@ configs.setup {
     additional_vim_regex_highlighting = false,
   },
   indent = { enable = true, disable = { "" } },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+  }
 }

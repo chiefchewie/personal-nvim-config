@@ -1,1 +1,6 @@
-vim.cmd [[colorscheme ayu-mirage]] -- might want to wrap this in a pcall
+local colorscheme = "tokyonight"
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+if not status_ok then
+  vim.notify("colorscheme " .. colorscheme .. " not found!")
+  return
+end

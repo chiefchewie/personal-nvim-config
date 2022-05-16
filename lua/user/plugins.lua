@@ -74,6 +74,11 @@ return packer.startup(function(use)
     run = ":TSUpdate"
   }
 
+  use {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make"
+  }
+
   use "p00f/nvim-ts-rainbow"
 
   -- Automatically set up your configuration after cloning packer.nvim

@@ -25,4 +25,10 @@ configs.setup {
     enable = true,
     extended_mode = true,
   },
+  autopairs = {
+    enable = true,
+  },
+  context_commentstring = {
+    enable = true,
+  },
 }

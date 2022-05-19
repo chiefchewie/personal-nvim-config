@@ -47,6 +47,7 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Auto close pairs
   use "kyazdani42/nvim-web-devicons" -- file icons
   use "kyazdani42/nvim-tree.lua" -- file explorer
+  use "akinsho/bufferline.nvim" -- bufferline
 
   -- Colorschemes
   use "folke/tokyonight.nvim"

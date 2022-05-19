@@ -45,6 +45,8 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
   use "windwp/nvim-autopairs" -- Auto close pairs
+  use "kyazdani42/nvim-web-devicons" -- file icons
+  use "kyazdani42/nvim-tree.lua" -- file explorer
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
@@ -83,6 +85,9 @@ return packer.startup(function(use)
   -- Smarter comments
   use "numToStr/Comment.nvim" -- Smart comments plugin
   use "JoosepAlviste/nvim-ts-context-commentstring" -- Context aware commenting
+
+  -- Git
+  use "lewis6991/gitsigns.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
